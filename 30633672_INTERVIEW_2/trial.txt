@@ -1,0 +1,19 @@
+    def increase(self):
+        no_space_left = self.is_full()
+        #function = insert()
+        if no_space_left:
+            self.new_capacity = round((self.length * 1.9)+0.5)
+            self.new_capacity -= self.length
+            for i in range(self.new_capacity):
+                self.the_array.append(None)
+            #self.new_array = [None] * self.new_capacity
+            #for i in range(self.length):
+                #self.new_array[i] = self.the_array[i]
+            #self.the_array = self.new_array
+        if self.length < self.capacity * 0.25:
+            self.new_capacity = self.capacity//2
+            self.new_array = [None] * self.new_capacity
+            for i in range(self.length):
+                self.new_array[i] = self.the_array[i]
+            self.the_array = self.new_array
+        return True
